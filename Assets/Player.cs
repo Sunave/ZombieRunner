@@ -12,7 +12,6 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update () {
-		print(spawnPoints.Length);
 		if (respawn) ReSpawn();
 	}
 
