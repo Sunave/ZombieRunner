@@ -20,4 +20,5 @@ public class Player : MonoBehaviour {
 		transform.position = spawnPoints[i].transform.position;
 		respawn = false;
 	}
+
 }
