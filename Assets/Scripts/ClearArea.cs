@@ -5,17 +5,18 @@ public class ClearArea : MonoBehaviour {
 
 	public float timeSinceLastTrigger = 0f;
 
-	void Start () {
-		
-	}
-	
+	private bool foundClearArea = false;
+
 	void Update () {
 		timeSinceLastTrigger += Time.deltaTime;
-		if (timeSinceLastTrigger > 3f && Time.realtimeSinceStartup > 10f) SendMessageUpwards ("OnFindClearArea");
+		if (timeSinceLastTrigger > 2f && Time.realtimeSinceStartup > 10f && !foundClearArea) {
+			foundClearArea = true;
+			SendMessageUpwards ("OnFindClearArea");
+		}
 	}
 
 	void OnTriggerStay (Collider collider) {
-		timeSinceLastTrigger = 0f;
+		if (collider.tag != "Player") timeSinceLastTrigger = 0f;
 	}
 	
 }
