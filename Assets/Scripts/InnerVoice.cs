@@ -15,7 +15,6 @@ public class InnerVoice : MonoBehaviour {
 	}
 	
 	public void OnFindClearArea () {
-		print ("OnFindClearArea innervoice");
 		audioSource.clip = goodLandingArea;
 		audioSource.Play();
 

@@ -13,7 +13,6 @@ public class RadioSystem : MonoBehaviour {
 	}
 
 	void OnMakeInitialHeliCall () {
-		print ("OnMakeInitialHeliCall");
 		audioSource.clip = callHeli;
 		audioSource.Play();
 		Invoke("CallHeli", callHeli.length + 1f);

@@ -3,14 +3,17 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public GameObject landingAreaPrefab;
+
 	private bool respawn;
 	private Transform[] spawnPoints;
-//	private AudioSource innerVoice;
 	private InnerVoice innerVoice;
+	private ClearArea clearArea;
 
 	void Start () {
 		spawnPoints = GameObject.Find("PlayerSpawnPoints").GetComponentsInChildren<Transform>();
 		innerVoice = GetComponentInChildren<InnerVoice>();
+		clearArea = GetComponentInChildren<ClearArea>();
 	}
 	
 	void Update () {
@@ -24,13 +27,12 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnFindClearArea () {
-		print ("OnFindClearArea player");
 		innerVoice.OnFindClearArea();
 		Invoke ("DropFlare", 3f);
 	}
 
 	void DropFlare () {
-		// TODO make it drop flare
+		Instantiate(landingAreaPrefab, transform.position, transform.rotation);
 	}
 
 }
